@@ -1,0 +1,70 @@
+
+<div class="container">
+  <div class="d-flex justify-content-between mb-5">
+    <h1>Cart</h1>
+    <button type="button" class="btn  btn-danger " *ngIf="cartCount() > 0 " (click)="clearCart()">clear</button>
+  </div>
+  <div class="row"  *ngIf="cartCount() > 0 ">
+    <div class="col-md-8">
+      
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Product</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Action</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of cart; let i=index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{item.name}}</td>
+            <td> {{item.price}}</td>
+            <td>{{item.qty}}</td>
+            <td>
+              <button type="button" class="btn btn-sm btn-danger rounded-circle" (click)="deleteItem(item)">X</button> |
+              <button type="button" class="btn btn-sm btn-danger rounded-circle" (click)="decreaseItem(item)">-</button> |
+              <button type="button" class="btn btn-sm btn-success rounded-circle" (click)="increaseItem(item)">+</button>
+  
+            </td>
+            <td>{{item.price * item.qty}}</td>
+          </tr>
+  
+          <!-- Add more rows for additional products -->
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="5" class="text-right">Total:</td>
+            <td>${{total}}</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          Card Details
+        </div>
+        <div class="card-body">
+          <div class="card-title">
+            <h3>Total:  {{total}}</h3>
+            <div class="mt-5">
+              <button type="button"  routerLink="/checkout"  class="btn btn-primary">Proceed to checkout</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div  *ngIf="!(cartCount() > 0 )">
+      <span class="fs-3">No Items founded</span>
+      <span class=""> return to <a routerLink="/">Home</a> </span>
+    </div>
+
+
+
+  </div>

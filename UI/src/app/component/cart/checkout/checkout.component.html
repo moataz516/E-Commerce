@@ -1,0 +1,92 @@
+
+<div class="container">
+    <div class="d-flex justify-content-between">
+      <h1>Checkout Cart</h1>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Product</th>
+              <th scope="col">Price</th>
+              <th scope="col">Quantity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of cart; let i=index">
+              <th scope="row">{{i+1}}</th>
+              <td>{{item.name}}</td>
+              <td> {{item.price}}</td>
+              <td>{{item.qty}}</td>
+
+            </tr>
+    
+            <!-- Add more rows for additional products -->
+          </tbody>
+
+        </table>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header">
+            Card Details
+          </div>
+          <div class="card-body">
+            <div class="card-title">
+              <h5>Total:  {{total}}</h5>
+
+                <form [formGroup]="myForm" (ngSubmit)="CheckOut()">
+                    <div class="row">
+                        <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="cardName" class="form-label"> name </label>
+                                    <input type="text" id="cardName" class="form-control" formControlName="cardName" >
+                                    <span class="text-danger"*ngIf="myForm.controls.cardName.touched && myForm.controls.cardName.status == 'INVALID'">Errorrr</span>
+
+                                </div>
+                        </div> 
+                        <div class="col-md-12">
+     
+                            <div class="form-group">
+                                <label for="" class="form-label"> card number </label>
+                                <input type="text" class="form-control" formControlName="cardNumber" >
+                                <span class="text-danger"*ngIf="myForm.controls.cardNumber.touched  && myForm.controls.cardNumber.status == 'INVALID'" >Errorrr</span>
+                            </div>
+                        </div>
+                            <div class="col-md-6">
+    
+                            <div class="form-group">
+                                <label for="" class="form-label"> month</label>
+                                <input type="text" class="form-control" formControlName="expiryMonth">
+                                <span class="text-danger"*ngIf="myForm.controls.expiryMonth.touched  && myForm.controls.expiryMonth.status == 'INVALID'" >Errorrr</span>
+                            </div>
+                        </div> 
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="" class="form-label"> year</label>
+                                    <input type="text" class="form-control" formControlName="expiryYear">
+                                    <span class="text-danger"*ngIf="myForm.controls.expiryYear.touched  && myForm.controls.expiryYear.status == 'INVALID' " >Errorrr</span>
+                                </div>                                                                      
+                        </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="" class="form-label"> cvv</label>
+                            <input type="text" class="form-control" formControlName="cvv">
+                            <span class="text-danger"*ngIf="myForm.controls.cvv.touched  && myForm.controls.cvv.status == 'INVALID' " >Errorrr</span>
+                        </div>                                                                      
+                    </div>                 
+                    </div>
+                    <div class="mt-5 d-flex justify-content-between">
+                      <button type="submit" class="btn btn-primary">order now</button>
+                      <a class="nav-link" style="cursor: pointer;" routerLink="/addCard">Add Card</a>
+                    </div>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    </div>

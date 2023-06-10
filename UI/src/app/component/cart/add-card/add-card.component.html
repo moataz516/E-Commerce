@@ -1,0 +1,59 @@
+
+<div class="container">
+    <div class="d-flex justify-content-between">
+      <h1>Add Cart Payment</h1>
+    </div>
+    <div class="row">
+      <div class="col-md-6 offset-4">
+        <div class="card">
+          <div class="card-header">
+            Card Details
+          </div>
+          <div class="card-body">
+            <div class="card-title">
+                <form [formGroup]="myForm" (ngSubmit)="addCard()">
+                    <div class="row">
+                        <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="" class="form-label"> name </label>
+                                    <input type="text" class="form-control" formControlName="cardName">
+                                </div>
+                        </div> 
+                        <div class="col-md-12">
+     
+                            <div class="form-group">
+                                <label for="" class="form-label"> card number </label>
+                                <input type="text" class="form-control" formControlName="cardNumber">
+                            </div>
+                        </div>
+                            <div class="col-md-6">
+    
+                            <div class="form-group">
+                                <label for="" class="form-label"> month</label>
+                                <input type="text" class="form-control" formControlName="expiryMonth">
+                            </div>
+                        </div> 
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="" class="form-label"> year</label>
+                                    <input type="text" class="form-control" formControlName="expiryYear">
+                                </div>                                                                      
+                        </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="" class="form-label"> cvv</label>
+                            <input type="text" class="form-control" formControlName="cvv">
+                        </div>                                                                      
+                    </div>                 
+                    </div>
+                    <div class="mt-5">
+                      <button type="submit" class="btn btn-primary">Add Card</button>
+                    </div>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    </div>

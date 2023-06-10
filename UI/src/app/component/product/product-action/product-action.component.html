@@ -1,0 +1,40 @@
+<div class="container">
+  <div class=" d-flex justify-content-between">
+      <h2>Product List</h2>
+      <p class="fs-1 text-success">
+          <a class="nav-link" routerLink="/product/add">+</a>
+      </p>
+  </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Name</th>
+          <th>Image</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Description</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products; let i = index ">
+            <td>{{i+1}}</td>
+          <td>{{ product.name }}</td>
+          <td style="width:150px;height:100px">
+
+            <img class="w-100 h-100" [src]="'data:image/jpeg;base64,' + product.image" [alt]="product.name">
+          </td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.quantity }}</td>
+          <td>{{product.description}}</td>
+
+          <td>
+            <button class="btn btn-primary btn-sm" [routerLink]="['/product', product.productId , 'update']" >Edit</button> |
+            <button class="btn btn-danger btn-sm" (click)="DeleteProduct(product.productId)" >Delete</button> |
+            <button class="btn btn-secondary btn-sm" [routerLink]="['/product' , product.productId]">View</button> 
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

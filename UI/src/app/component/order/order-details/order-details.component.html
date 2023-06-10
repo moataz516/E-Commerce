@@ -1,0 +1,37 @@
+
+<div class="container">
+    <div class="d-flex justify-content-between">
+      <h1>Checkout Cart</h1>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Product</th>
+              <th scope="col">Price</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">state</th>
+              <th scope="col">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of userOrder; let i=index">
+              <th scope="row">{{i+1}}</th>
+              <td>{{item.userOrder.name}}</td>
+              <td> {{item.userOrder.price}}</td>
+              <td>{{item.userOrder.quantity}}</td>
+              <td>{{item.o.state }}</td>
+              <td>{{item.userOrder.total}}</td>
+
+            </tr>
+    
+            <!-- Add more rows for additional products -->
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+  
+    </div>

@@ -1,0 +1,25 @@
+
+
+    <div class=" d-flex align-items-center mb-4" > 
+        <div class="mx-auto">
+            <button class="px-4 py-2 custom-btn" [class.active]="selectedCategoryId === 'All' "  (click)="selectedCategory('All')" >All</button>
+            <button class="px-4 py-2 custom-btn" *ngFor="let cat of categories" [class.active]="selectedCategoryId === cat.categoryId "  (click)="selectedCategory(cat.categoryId)" >{{cat.name}}</button>
+        </div>
+        <p class="fs-1 text-success" >
+            <a class="nav-link" routerLink="/product/add">+</a>
+        </p>
+    </div>
+
+
+    <owl-carousel-o [options]="customOptions" >
+
+        <ng-container *ngFor="let i of products | productFilter: selectedCategoryId">
+            <ng-template class=" product-item" carouselSlide [id]="i.productId" >
+                <app-product-item  [productItem]="i"></app-product-item>
+            </ng-template>
+        </ng-container>
+    
+    </owl-carousel-o>
+
+   
+   

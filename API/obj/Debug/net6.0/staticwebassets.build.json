@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "nrRSBax2rDsiNIIXQVnjxrlyVyx0Nv9ILdR3u1dXev8=",
+  "Source": "E-Website",
+  "BasePath": "_content/E-Website",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "E-Website\\wwwroot",
+      "Source": "E-Website",
+      "ContentRoot": "C:\\Users\\RTX\\Desktop\\Angular and .Net\\E-Website\\wwwroot\\",
+      "BasePath": "_content/E-Website",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}

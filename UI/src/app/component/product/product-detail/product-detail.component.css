@@ -1,0 +1,12 @@
+.product-image {
+    max-width: 100%;
+    max-height:50vh
+  }
+
+  .product-description {
+    margin-top: 20px;
+  }
+
+  .m-t-150{
+    margin-top:150px
+  }

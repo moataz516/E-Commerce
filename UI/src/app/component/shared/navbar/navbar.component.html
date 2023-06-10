@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark mb-5">
+    <a class="navbar-brand" routerLink="/">Product Application</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+
+      <ul class="navbar-nav me-auto ms-3" >
+        <li  class="nav-item" *ngIf="adminRole()">
+          <a class="nav-link" routerLink="/product">Product</a>
+        </li>
+        <li  class="nav-item" >
+          <a class="nav-link" routerLink="/category" *ngIf="adminRole()">Category</a>
+        </li>
+
+        <li  class="nav-item" >
+          <a class="nav-link" routerLink="/orders" *ngIf="adminRole()">orders</a>
+        </li>            
+        <li  class="nav-item" >
+          <a class="nav-link" routerLink="/userorder" *ngIf="userRole()">order details</a>
+        </li>          
+      </ul>
+
+      <ul class="navbar-nav ms-auto me-3" *ngIf="isAuthenticated()" >
+        
+        <li class="nav-item me-4">
+          <a class="nav-link" routerLink="/cart">
+            <i class="fas fa-shopping-cart"></i>
+            {{cartNumber != 0 ? cartNumber : ''}}
+          </a>
+        </li>
+        
+        <li class="nav-item"  >
+          <a class="nav-link"  style="cursor:pointer" (click)="logOut()">Logout</a>
+        </li>
+
+        <!-- <li class=" me-4 d-flex align-items-end">
+          <div class="img-container">
+           <img src="https://cdn-icons-png.flaticon.com/128/552/552721.png" class="w-100 p-1" alt="">
+          </div>
+        </li> -->
+      </ul>
+
+      <ul class="navbar-nav ms-auto me-3" *ngIf="!isAuthenticated()"  >
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/register">Sign Up</a>
+          </li>
+      </ul>
+
+    </div>
+  </nav>

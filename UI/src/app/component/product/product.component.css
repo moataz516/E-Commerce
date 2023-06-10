@@ -1,0 +1,22 @@
+button.active {
+    background-color: #515151 !important;
+    color: white;
+    border:none !important
+  }
+
+  button.custom-btn{
+    background-color: inherit;
+    border:none;
+    margin-right: 8px;
+    border-bottom:2px solid #999;
+    border-radius: 10px;
+    
+  } 
+
+  .product-container{
+    width:100%;
+    overflow:hidden
+  }
+
+
+
